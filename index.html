@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Mood</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="weather-box">
+            <div class="search-box">
+                <input type="text" placeholder="Enter city name" id="cityInput">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="weather-info" id="weatherInfo">
+                <div class="city-info">
+                    <h2 id="cityName">---</h2>
+                    <p id="weatherDesc">---</p>
+                </div>
+
+                <div class="temperature">
+                    <h1><span id="temp">--</span>°C</h1>
+                    <p>Feels like <span id="feelsLike">--</span>°C</p>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail">
+                        <i class="fas fa-wind"></i>
+                        <div>
+                            <p>Wind Speed</p>
+                            <h4><span id="windSpeed">--</span> km/h</h4>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <i class="fas fa-tint"></i>
+                        <div>
+                            <p>Humidity</p>
+                            <h4><span id="humidity">--</span>%</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mood-message" id="moodMessage">
+                    Enter a city to get started!
+                </div>
+            </div>
+
+            <div class="error" id="error"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
