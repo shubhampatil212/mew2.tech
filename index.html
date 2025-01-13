@@ -1,56 +1,421 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Mood</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Zombie Math Attack</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            user-select: none;
+        }
+        #game-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background: #203040;
+        }
+        #player {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 60px;
+            background: #3498db;
+            border-radius: 5px;
+        }
+        .zombie {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background: #2ecc71;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .zombie.active {
+            background: #e74c3c;
+        }
+        #math-panel {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 300px;
+        }
+        #current-problem {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        #answer-input {
+            font-size: 24px;
+            padding: 8px 15px;
+            width: 100px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-around;
+            font-size: 24px;
+            z-index: 100;
+        }
+        .stat {
+            padding: 5px 15px;
+            border-radius: 5px;
+            background: rgba(52, 152, 219, 0.3);
+        }
+        #overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .title {
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: #2ecc71;
+            text-align: center;
+        }
+        #difficulty-container {
+            margin-bottom: 25px;
+        }
+        .button {
+            padding: 12px 25px;
+            font-size: 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background: #2980b9;
+        }
+        .button.selected {
+            background: #2ecc71;
+        }
+        .bullet {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: yellow;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="weather-box">
-            <div class="search-box">
-                <input type="text" placeholder="Enter city name" id="cityInput">
-                <button id="searchBtn"><i class="fas fa-search"></i></button>
+    <div id="game-container">
+        <div id="header">
+            <div class="stat">Level: <span id="level">1</span></div>
+            <div class="stat">Score: <span id="score">0</span></div>
+            <div class="stat">Lives: <span id="lives">3</span></div>
+            <div class="stat">Current Problem: <span id="current-equation"></span></div>
+        </div>
+        <div id="player"></div>
+        <div id="math-panel">
+            <div id="current-problem"></div>
+            <input type="number" id="answer-input" placeholder="=" autocomplete="off">
+        </div>
+        <div id="overlay">
+            <div class="title">Zombie Math Attack</div>
+            <div id="difficulty-container">
+                <button class="button selected" data-difficulty="easy">Easy</button>
+                <button class="button" data-difficulty="medium">Medium</button>
+                <button class="button" data-difficulty="hard">Hard</button>
             </div>
-            
-            <div class="weather-info" id="weatherInfo">
-                <div class="city-info">
-                    <h2 id="cityName">---</h2>
-                    <p id="weatherDesc">---</p>
-                </div>
-
-                <div class="temperature">
-                    <h1><span id="temp">--</span>°C</h1>
-                    <p>Feels like <span id="feelsLike">--</span>°C</p>
-                </div>
-
-                <div class="weather-details">
-                    <div class="detail">
-                        <i class="fas fa-wind"></i>
-                        <div>
-                            <p>Wind Speed</p>
-                            <h4><span id="windSpeed">--</span> km/h</h4>
-                        </div>
-                    </div>
-                    <div class="detail">
-                        <i class="fas fa-tint"></i>
-                        <div>
-                            <p>Humidity</p>
-                            <h4><span id="humidity">--</span>%</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mood-message" id="moodMessage">
-                    Enter a city to get started!
-                </div>
-            </div>
-
-            <div class="error" id="error"></div>
+            <button class="button" id="start-button">Start Game</button>
         </div>
     </div>
-    <script src="script.js"></script>
+
+<script>
+const game = {
+    state: {
+        active: false,
+        score: 0,
+        level: 1,
+        lives: 3,
+        difficulty: 'easy',
+        currentProblem: null,
+        zombies: new Set(),
+        spawnInterval: null,
+        moveInterval: null
+    },
+
+    config: {
+        easy: {
+            operations: ['+', '-'],
+            maxNumber: 10,
+            spawnRate: 3000,
+            speed: 1
+        },
+        medium: {
+            operations: ['+', '-', '*'],
+            maxNumber: 15,
+            spawnRate: 2500,
+            speed: 1.5
+        },
+        hard: {
+            operations: ['+', '-', '*', '/'],
+            maxNumber: 20,
+            spawnRate: 2000,
+            speed: 2
+        }
+    },
+
+    generateProblem() {
+        const settings = this.config[this.state.difficulty];
+        const operation = settings.operations[Math.floor(Math.random() * settings.operations.length)];
+        let num1, num2, answer;
+
+        do {
+            switch(operation) {
+                case '+':
+                    num1 = Math.floor(Math.random() * settings.maxNumber) + 1;
+                    num2 = Math.floor(Math.random() * settings.maxNumber) + 1;
+                    answer = num1 + num2;
+                    break;
+                case '-':
+                    num1 = Math.floor(Math.random() * settings.maxNumber) + 1;
+                    num2 = Math.floor(Math.random() * num1) + 1;
+                    answer = num1 - num2;
+                    break;
+                case '*':
+                    num1 = Math.floor(Math.random() * (Math.sqrt(settings.maxNumber))) + 1;
+                    num2 = Math.floor(Math.random() * (Math.sqrt(settings.maxNumber))) + 1;
+                    answer = num1 * num2;
+                    break;
+                case '/':
+                    num2 = Math.floor(Math.random() * 5) + 1;
+                    answer = Math.floor(Math.random() * 5) + 1;
+                    num1 = num2 * answer;
+                    break;
+            }
+        } while (answer > settings.maxNumber);
+
+        return {
+            num1,
+            num2,
+            operation,
+            answer,
+            text: `${num1} ${operation} ${num2}`
+        };
+    },
+
+    createZombie() {
+        if (!this.state.active) return;
+
+        const zombie = document.createElement('div');
+        zombie.className = 'zombie';
+        
+        // Randomly decide spawn side and position
+        const side = Math.random() < 0.5 ? 'left' : 'right';
+        const startX = side === 'left' ? -50 : window.innerWidth + 50;
+        const startY = Math.random() * (window.innerHeight - 300) + 100;
+        
+        zombie.style.left = `${startX}px`;
+        zombie.style.top = `${startY}px`;
+        
+        const zombieData = {
+            element: zombie,
+            x: startX,
+            y: startY,
+            side: side,
+            speed: this.config[this.state.difficulty].speed * (1 + this.state.level * 0.1),
+            targetY: window.innerHeight - 150,
+            answer: this.state.currentProblem.answer // Store answer internally
+        };
+
+        // Zombie won't display answer text, keeping it blank
+        zombie.textContent = ''; // No answer shown
+
+        document.getElementById('game-container').appendChild(zombie);
+        this.state.zombies.add(zombieData);
+    },
+
+    moveZombies() {
+        if (!this.state.active) return;
+
+        const playerRect = document.getElementById('player').getBoundingClientRect();
+        
+        for (const zombie of this.state.zombies) {
+            // Move towards player
+            const dx = (window.innerWidth / 2) - zombie.x;
+            const dy = zombie.targetY - zombie.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 30) { // Zombie reached player
+                this.hitPlayer(zombie);
+                continue;
+            }
+
+            // Normalize movement
+            const speed = zombie.speed;
+            zombie.x += (dx / distance) * speed;
+            zombie.y += (dy / distance) * speed;
+
+            // Update position
+            zombie.element.style.left = `${zombie.x}px`;
+            zombie.element.style.top = `${zombie.y}px`;
+        }
+
+        requestAnimationFrame(() => this.moveZombies());
+    },
+
+    hitPlayer(zombie) {
+        this.state.lives--;
+        document.getElementById('lives').textContent = this.state.lives;
+        this.removeZombie(zombie);
+
+        if (this.state.lives <= 0) {
+            this.endGame();
+        }
+    },
+
+    removeZombie(zombie) {
+        zombie.element.remove();
+        this.state.zombies.delete(zombie);
+    },
+
+    checkAnswer(answer) {
+        if (!this.state.active || !this.state.currentProblem) return;
+
+        const numberAnswer = parseInt(answer);
+        if (numberAnswer === this.state.currentProblem.answer) {
+            // Find and remove matching zombie
+            for (const zombie of this.state.zombies) {
+                if (zombie.answer === numberAnswer) {
+                    this.shootZombie(zombie);
+                    this.state.score += 10;
+                    document.getElementById('score').textContent = this.state.score;
+                    
+                    if (this.state.score % 50 === 0) {
+                        this.levelUp();
+                    }
+                    
+                    this.setNewProblem();
+                    break;
+                }
+            }
+        }
+        document.getElementById('answer-input').value = '';
+    },
+
+    shootZombie(zombie) {
+        // Create bullet effect
+        const bullet = document.createElement('div');
+        bullet.className = 'bullet';
+        const player = document.getElementById('player');
+        const playerRect = player.getBoundingClientRect();
+        
+        bullet.style.left = `${playerRect.left + playerRect.width / 2}px`;
+        bullet.style.bottom = `${playerRect.height}px`;
+        document.getElementById('game-container').appendChild(bullet);
+
+        // Animate bullet
+        const bulletAnim = bullet.animate([
+            { left: `${playerRect.left + playerRect.width / 2}px`, top: `${playerRect.bottom}px` },
+            { left: `${zombie.x + 20}px`, top: `${zombie.y + 30}px` }
+        ], {
+            duration: 300,
+            easing: 'linear'
+        });
+
+        bulletAnim.onfinish = () => {
+            bullet.remove();
+            this.removeZombie(zombie);
+        };
+    },
+
+    setNewProblem() {
+        this.state.currentProblem = this.generateProblem();
+        document.getElementById('current-problem').textContent = this.state.currentProblem.text;
+        document.getElementById('current-equation').textContent = this.state.currentProblem.text;
+    },
+
+    levelUp() {
+        this.state.level++;
+        document.getElementById('level').textContent = this.state.level;
+    },
+
+    startGame() {
+        this.state.active = true;
+        this.state.score = 0;
+        this.state.level = 1;
+        this.state.lives = 3;
+        this.state.zombies.clear();
+
+        // Clear any existing zombies
+        document.querySelectorAll('.zombie').forEach(z => z.remove());
+
+        // Update display
+        document.getElementById('score').textContent = this.state.score;
+        document.getElementById('level').textContent = this.state.level;
+        document.getElementById('lives').textContent = this.state.lives;
+        document.getElementById('overlay').style.display = 'none';
+
+        // Start game systems
+        this.setNewProblem();
+        this.state.spawnInterval = setInterval(() => this.createZombie(), this.config[this.state.difficulty].spawnRate);
+        this.moveZombies();
+
+        // Focus input
+        document.getElementById('answer-input').focus();
+    },
+
+    endGame() {
+        this.state.active = false;
+        clearInterval(this.state.spawnInterval);
+        
+        document.querySelector('.title').textContent = `Game Over! Score: ${this.state.score}`;
+        document.getElementById('start-button').textContent = 'Play Again';
+        document.getElementById('overlay').style.display = 'flex';
+    }
+};
+
+// Event Listeners
+document.getElementById('start-button').onclick = () => game.startGame();
+
+document.getElementById('answer-input').onkeypress = (e) => {
+    if (e.key === 'Enter') {
+        game.checkAnswer(e.target.value);
+    }
+};
+
+document.querySelectorAll('[data-difficulty]').forEach(btn => {
+    btn.onclick = (e) => {
+        document.querySelectorAll('[data-difficulty]').forEach(b => b.classList.remove('selected'));
+        e.target.classList.add('selected');
+        game.state.difficulty = e.target.dataset.difficulty;
+    };
+});
+</script>
 </body>
 </html>
