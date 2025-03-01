@@ -1,1102 +1,421 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="AI-generated website">
-      <meta name="theme-color" content="#ffffff">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="robots" content="index, follow">
-      
-      <!-- Performance optimization: Preload critical resources -->
-      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" as="style">
-      
-      <!-- {headerScripts} -->
-
-      <!-- Core CSS -->
-      <script src="https://cdn.tailwindcss.com"></script>
-      <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-             colors: {
-                primary: {
-                  50: '#f8f8f8',
-                  100: '#e8e8e8',
-                  200: '#d3d3d3',
-                  300: '#a3a3a3',
-                  400: '#737373',
-                  500: '#525252',
-                  600: '#404040',
-                  700: '#262626',
-                  800: '#171717',
-                  900: '#0a0a0a',
-                  950: '#030303',
-                },
-                secondary: {
-                  50: '#f8f8f8',
-                  100: '#e8e8e8',
-                  200: '#d3d3d3',
-                  300: '#a3a3a3',
-                  400: '#737373',
-                  500: '#525252',
-                  600: '#404040',
-                  700: '#262626',
-                  800: '#171717',
-                  900: '#0a0a0a',
-                  950: '#030303',
-                },
-                accent: {
-                  50: '#f8f8f8',
-                  100: '#e8e8e8',
-                  200: '#d3d3d3',
-                  300: '#a3a3a3',
-                  400: '#737373',
-                  500: '#525252',
-                  600: '#404040',
-                  700: '#262626',
-                  800: '#171717',
-                  900: '#0a0a0a',
-                  950: '#030303',
-                },
-              },
-              fontFamily: {
-                sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-                heading: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
-              },
-              spacing: {
-                '18': '4.5rem',
-                '22': '5.5rem',
-                '30': '7.5rem',
-              },
-              maxWidth: {
-                '8xl': '88rem',
-                '9xl': '96rem',
-              },
-              animation: {
-                'fade-in': 'fadeIn 0.5s ease-in',
-                'fade-out': 'fadeOut 0.5s ease-out',
-                'slide-up': 'slideUp 0.5s ease-out',
-                'slide-down': 'slideDown 0.5s ease-out',
-                'slide-left': 'slideLeft 0.5s ease-out',
-                'slide-right': 'slideRight 0.5s ease-out',
-                'scale-in': 'scaleIn 0.5s ease-out',
-                'scale-out': 'scaleOut 0.5s ease-out',
-                'spin-slow': 'spin 3s linear infinite',
-                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                'bounce-slow': 'bounce 3s infinite',
-                'float': 'float 3s ease-in-out infinite',
-              },
-              keyframes: {
-                fadeIn: {
-                  '0%': { opacity: '0' },
-                  '100%': { opacity: '1' },
-                },
-                fadeOut: {
-                  '0%': { opacity: '1' },
-                  '100%': { opacity: '0' },
-                },
-                slideUp: {
-                  '0%': { transform: 'translateY(20px)', opacity: '0' },
-                  '100%': { transform: 'translateY(0)', opacity: '1' },
-                },
-                slideDown: {
-                  '0%': { transform: 'translateY(-20px)', opacity: '0' },
-                  '100%': { transform: 'translateY(0)', opacity: '1' },
-                },
-                slideLeft: {
-                  '0%': { transform: 'translateX(20px)', opacity: '0' },
-                  '100%': { transform: 'translateX(0)', opacity: '1' },
-                },
-                slideRight: {
-                  '0%': { transform: 'translateX(-20px)', opacity: '0' },
-                  '100%': { transform: 'translateX(0)', opacity: '1' },
-                },
-                scaleIn: {
-                  '0%': { transform: 'scale(0.9)', opacity: '0' },
-                  '100%': { transform: 'scale(1)', opacity: '1' },
-                },
-                scaleOut: {
-                  '0%': { transform: 'scale(1.1)', opacity: '0' },
-                  '100%': { transform: 'scale(1)', opacity: '1' },
-                },
-                float: {
-                  '0%, 100%': { transform: 'translateY(0)' },
-                  '50%': { transform: 'translateY(-10px)' },
-                },
-              },
-              aspectRatio: {
-                'portrait': '3/4',
-                'landscape': '4/3',
-                'ultrawide': '21/9',
-              },
-            },
-          },
-          variants: {
-            extend: {
-              opacity: ['disabled'],
-              cursor: ['disabled'],
-              backgroundColor: ['active', 'disabled'],
-              textColor: ['active', 'disabled'],
-            },
-          },
-        }
-      </script>
-
-      <!-- Utilities and Components -->
-      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
-      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
-      
-      <!-- Optimized Font Loading -->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-      
-      <!-- Icons -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-      <!-- Base Styles -->
-      <style>
-
-      * {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
-}
-
-/* Webkit browsers like Chrome, Safari, newer Edge */
-*::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-          width: 0px;
-        }
-        
-        ::-webkit-scrollbar-track {
-          background: #f1f1f1;
-          border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-          background: #888;
-          border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-          background: #666;
-        }
-
-        /* Remove tap highlight on mobile */
-        * {
-          -webkit-tap-highlight-color: transparent;
-        }
-
-        /* Improve text rendering */
+<html>
+<head>
+    <title>Zombie Math Attack</title>
+    <style>
         body {
-          text-rendering: optimizeLegibility;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            user-select: none;
         }
-
-        /* Focus outline styles */
-        :focus-visible {
-          outline: 2px solid currentColor;
-          outline-offset: 2px;
+        #game-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background: #203040;
         }
-
-        /* Print styles */
-        @media print {
-          .no-print {
-            display: none !important;
-          }
-          
-          a[href]:after {
-            content: " (" attr(href) ")";
-          }
+        #player {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 60px;
+            background: #3498db;
+            border-radius: 5px;
         }
-      </style>
-
-      <!-- Enhanced Image Handler -->
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                const img = entry.target;
-                if (img.dataset.src) {
-                  const tempImage = new Image();
-                  tempImage.onload = () => {
-                    img.src = img.dataset.src;
-                    img.classList.remove('opacity-0');
-                    img.classList.add('opacity-100');
-                  };
-                  tempImage.src = img.dataset.src;
-                  img.removeAttribute('data-src');
-                  observer.unobserve(img);
-                }
-              }
-            });
-          }, {
-            rootMargin: '50px 0px',
-            threshold: 0.01
-          });
-
-          const loadImage = (img) => {
-            if ('loading' in HTMLImageElement.prototype) {
-              img.loading = 'lazy';
-            }
-            
-            img.classList.add('transition-opacity', 'duration-300', 'opacity-0');
-            
-            img.onerror = () => {
-              const width = img.getAttribute('width') || img.clientWidth || 300;
-              const height = img.getAttribute('height') || img.clientHeight || 200;
-              img.src = `https://placehold.co/${width}x${height}/DEDEDE/555555?text=Image+Unavailable`;
-              img.alt = 'Image unavailable';
-              img.classList.remove('opacity-0');
-              img.classList.add('opacity-100', 'error-image');
-            };
-
-            if (img.dataset.src) {
-              imageObserver.observe(img);
-            } else {
-              img.classList.remove('opacity-0');
-              img.classList.add('opacity-100');
-            }
-          };
-
-          document.querySelectorAll('img[data-src], img:not([data-src])').forEach(loadImage);
-
-          // Watch for dynamically added images
-          new MutationObserver((mutations) => {
-            mutations.forEach(mutation => {
-              mutation.addedNodes.forEach(node => {
-                if (node.nodeType === 1) {
-                  if (node.tagName === 'IMG') {
-                    loadImage(node);
-                  }
-                  node.querySelectorAll('img').forEach(loadImage);
-                }
-              });
-            });
-          }).observe(document.body, {
-            childList: true,
-            subtree: true
-          });
-        });
-
-        // Performance monitoring
-        if ('performance' in window && 'PerformanceObserver' in window) {
-          // Create performance observer
-          const observer = new PerformanceObserver((list) => {
-            const entries = list.getEntries();
-            entries.forEach((entry) => {
-              if (entry.entryType === 'largest-contentful-paint') {
-                // console.log(`LCP: ${entry.startTime}ms`);
-              }
-              if (entry.entryType === 'first-input') {
-                // console.log(`FID: ${entry.processingStart - entry.startTime}ms`);
-              }
-              if (entry.entryType === 'layout-shift') {
-                // console.log(`CLS: ${entry.value}`);
-              }
-            });
-          });
-
-          // Observe performance metrics
-          observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
-
-          // Log basic performance metrics
-          window.addEventListener('load', () => {
-            const timing = performance.getEntriesByType('navigation')[0];
-            console.log({
-              'DNS Lookup': timing.domainLookupEnd - timing.domainLookupStart,
-              'TCP Connection': timing.connectEnd - timing.connectStart,
-              'DOM Content Loaded': timing.domContentLoadedEventEnd - timing.navigationStart,
-              'Page Load': timing.loadEventEnd - timing.navigationStart
-            });
-          });
+        .zombie {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background: #2ecc71;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: white;
+            transition: background-color 0.3s;
         }
+        .zombie.active {
+            background: #e74c3c;
+        }
+        #math-panel {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 300px;
+        }
+        #current-problem {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        #answer-input {
+            font-size: 24px;
+            padding: 8px 15px;
+            width: 100px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-around;
+            font-size: 24px;
+            z-index: 100;
+        }
+        .stat {
+            padding: 5px 15px;
+            border-radius: 5px;
+            background: rgba(52, 152, 219, 0.3);
+        }
+        #overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .title {
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: #2ecc71;
+            text-align: center;
+        }
+        #difficulty-container {
+            margin-bottom: 25px;
+        }
+        .button {
+            padding: 12px 25px;
+            font-size: 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background: #2980b9;
+        }
+        .button.selected {
+            background: #2ecc71;
+        }
+        .bullet {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: yellow;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="header">
+            <div class="stat">Level: <span id="level">1</span></div>
+            <div class="stat">Score: <span id="score">0</span></div>
+            <div class="stat">Lives: <span id="lives">3</span></div>
+            <div class="stat">Current Problem: <span id="current-equation"></span></div>
+        </div>
+        <div id="player"></div>
+        <div id="math-panel">
+            <div id="current-problem"></div>
+            <input type="number" id="answer-input" placeholder="=" autocomplete="off">
+        </div>
+        <div id="overlay">
+            <div class="title">Zombie Math Attack</div>
+            <div id="difficulty-container">
+                <button class="button selected" data-difficulty="easy">Easy</button>
+                <button class="button" data-difficulty="medium">Medium</button>
+                <button class="button" data-difficulty="hard">Hard</button>
+            </div>
+            <button class="button" id="start-button">Start Game</button>
+        </div>
+    </div>
 
-        // Handle offline/online status
-        window.addEventListener('online', () => {
-          document.body.classList.remove('offline');
-          console.log('Connection restored');
-        });
-        
-        window.addEventListener('offline', () => {
-          document.body.classList.add('offline');
-          console.log('Connection lost');
-        });
-      </script>
-   </head>
-   <body class="antialiased text-gray-800 min-h-screen flex flex-col">
-      <!-- Skip to main content link for accessibility -->
-      <a href="#main-content" 
-         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
-         Skip to main content
-      </a>
+<script>
+const game = {
+    state: {
+        active: false,
+        score: 0,
+        level: 1,
+        lives: 3,
+        difficulty: 'easy',
+        currentProblem: null,
+        zombies: new Set(),
+        spawnInterval: null,
+        moveInterval: null
+    },
 
-      <!-- Header -->
-      <header class="relative z-50 bg-white dark:bg-gray-900">
-        <!-- Header content goes here -->
-      </header>
-
-      <!-- Main content area -->
-      <main id="main-content" class="flex-1 relative ">
-        <!-- Content will be injected here -->
-      </main>
-
-      <!-- {bodyScripts} -->
-
-   </body>
-</html>
-                <htmlcode>
-<div id="root" class="">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
-          colors: {
-            primary: {
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              200: '#bbf7d0',
-              300: '#86efac',
-              400: '#4ade80',
-              500: '#22c55e',
-              600: '#16a34a',
-              700: '#15803d',
-              800: '#166534',
-              900: '#14532d',
-            },
-          },
+    config: {
+        easy: {
+            operations: ['+', '-'],
+            maxNumber: 10,
+            spawnRate: 3000,
+            speed: 1
         },
-      },
+        medium: {
+            operations: ['+', '-', '*'],
+            maxNumber: 15,
+            spawnRate: 2500,
+            speed: 1.5
+        },
+        hard: {
+            operations: ['+', '-', '*', '/'],
+            maxNumber: 20,
+            spawnRate: 2000,
+            speed: 2
+        }
+    },
+
+    generateProblem() {
+        const settings = this.config[this.state.difficulty];
+        const operation = settings.operations[Math.floor(Math.random() * settings.operations.length)];
+        let num1, num2, answer;
+
+        do {
+            switch(operation) {
+                case '+':
+                    num1 = Math.floor(Math.random() * settings.maxNumber) + 1;
+                    num2 = Math.floor(Math.random() * settings.maxNumber) + 1;
+                    answer = num1 + num2;
+                    break;
+                case '-':
+                    num1 = Math.floor(Math.random() * settings.maxNumber) + 1;
+                    num2 = Math.floor(Math.random() * num1) + 1;
+                    answer = num1 - num2;
+                    break;
+                case '*':
+                    num1 = Math.floor(Math.random() * (Math.sqrt(settings.maxNumber))) + 1;
+                    num2 = Math.floor(Math.random() * (Math.sqrt(settings.maxNumber))) + 1;
+                    answer = num1 * num2;
+                    break;
+                case '/':
+                    num2 = Math.floor(Math.random() * 5) + 1;
+                    answer = Math.floor(Math.random() * 5) + 1;
+                    num1 = num2 * answer;
+                    break;
+            }
+        } while (answer > settings.maxNumber);
+
+        return {
+            num1,
+            num2,
+            operation,
+            answer,
+            text: `${num1} ${operation} ${num2}`
+        };
+    },
+
+    createZombie() {
+        if (!this.state.active) return;
+
+        const zombie = document.createElement('div');
+        zombie.className = 'zombie';
+        
+        // Randomly decide spawn side and position
+        const side = Math.random() < 0.5 ? 'left' : 'right';
+        const startX = side === 'left' ? -50 : window.innerWidth + 50;
+        const startY = Math.random() * (window.innerHeight - 300) + 100;
+        
+        zombie.style.left = `${startX}px`;
+        zombie.style.top = `${startY}px`;
+        
+        const zombieData = {
+            element: zombie,
+            x: startX,
+            y: startY,
+            side: side,
+            speed: this.config[this.state.difficulty].speed * (1 + this.state.level * 0.1),
+            targetY: window.innerHeight - 150,
+            answer: this.state.currentProblem.answer // Store answer internally
+        };
+
+        // Zombie won't display answer text, keeping it blank
+        zombie.textContent = ''; // No answer shown
+
+        document.getElementById('game-container').appendChild(zombie);
+        this.state.zombies.add(zombieData);
+    },
+
+    moveZombies() {
+        if (!this.state.active) return;
+
+        const playerRect = document.getElementById('player').getBoundingClientRect();
+        
+        for (const zombie of this.state.zombies) {
+            // Move towards player
+            const dx = (window.innerWidth / 2) - zombie.x;
+            const dy = zombie.targetY - zombie.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 30) { // Zombie reached player
+                this.hitPlayer(zombie);
+                continue;
+            }
+
+            // Normalize movement
+            const speed = zombie.speed;
+            zombie.x += (dx / distance) * speed;
+            zombie.y += (dy / distance) * speed;
+
+            // Update position
+            zombie.element.style.left = `${zombie.x}px`;
+            zombie.element.style.top = `${zombie.y}px`;
+        }
+
+        requestAnimationFrame(() => this.moveZombies());
+    },
+
+    hitPlayer(zombie) {
+        this.state.lives--;
+        document.getElementById('lives').textContent = this.state.lives;
+        this.removeZombie(zombie);
+
+        if (this.state.lives <= 0) {
+            this.endGame();
+        }
+    },
+
+    removeZombie(zombie) {
+        zombie.element.remove();
+        this.state.zombies.delete(zombie);
+    },
+
+    checkAnswer(answer) {
+        if (!this.state.active || !this.state.currentProblem) return;
+
+        const numberAnswer = parseInt(answer);
+        if (numberAnswer === this.state.currentProblem.answer) {
+            // Find and remove matching zombie
+            for (const zombie of this.state.zombies) {
+                if (zombie.answer === numberAnswer) {
+                    this.shootZombie(zombie);
+                    this.state.score += 10;
+                    document.getElementById('score').textContent = this.state.score;
+                    
+                    if (this.state.score % 50 === 0) {
+                        this.levelUp();
+                    }
+                    
+                    this.setNewProblem();
+                    break;
+                }
+            }
+        }
+        document.getElementById('answer-input').value = '';
+    },
+
+    shootZombie(zombie) {
+        // Create bullet effect
+        const bullet = document.createElement('div');
+        bullet.className = 'bullet';
+        const player = document.getElementById('player');
+        const playerRect = player.getBoundingClientRect();
+        
+        bullet.style.left = `${playerRect.left + playerRect.width / 2}px`;
+        bullet.style.bottom = `${playerRect.height}px`;
+        document.getElementById('game-container').appendChild(bullet);
+
+        // Animate bullet
+        const bulletAnim = bullet.animate([
+            { left: `${playerRect.left + playerRect.width / 2}px`, top: `${playerRect.bottom}px` },
+            { left: `${zombie.x + 20}px`, top: `${zombie.y + 30}px` }
+        ], {
+            duration: 300,
+            easing: 'linear'
+        });
+
+        bulletAnim.onfinish = () => {
+            bullet.remove();
+            this.removeZombie(zombie);
+        };
+    },
+
+    setNewProblem() {
+        this.state.currentProblem = this.generateProblem();
+        document.getElementById('current-problem').textContent = this.state.currentProblem.text;
+        document.getElementById('current-equation').textContent = this.state.currentProblem.text;
+    },
+
+    levelUp() {
+        this.state.level++;
+        document.getElementById('level').textContent = this.state.level;
+    },
+
+    startGame() {
+        this.state.active = true;
+        this.state.score = 0;
+        this.state.level = 1;
+        this.state.lives = 3;
+        this.state.zombies.clear();
+
+        // Clear any existing zombies
+        document.querySelectorAll('.zombie').forEach(z => z.remove());
+
+        // Update display
+        document.getElementById('score').textContent = this.state.score;
+        document.getElementById('level').textContent = this.state.level;
+        document.getElementById('lives').textContent = this.state.lives;
+        document.getElementById('overlay').style.display = 'none';
+
+        // Start game systems
+        this.setNewProblem();
+        this.state.spawnInterval = setInterval(() => this.createZombie(), this.config[this.state.difficulty].spawnRate);
+        this.moveZombies();
+
+        // Focus input
+        document.getElementById('answer-input').focus();
+    },
+
+    endGame() {
+        this.state.active = false;
+        clearInterval(this.state.spawnInterval);
+        
+        document.querySelector('.title').textContent = `Game Over! Score: ${this.state.score}`;
+        document.getElementById('start-button').textContent = 'Play Again';
+        document.getElementById('overlay').style.display = 'flex';
     }
-  </script>
+};
 
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
-    <nav class="container mx-auto px-6 py-3 div-highlight">
-      <div class="flex items-center justify-between div-highlight">
-        <div class="text-xl font-bold text-primary-600 div-highlight">AgriCode</div>
-        <div class="hidden md:flex space-x-4">
-          <a href="#" class="text-gray-600 hover:text-primary-600">Home</a>
-          <a href="#" class="text-gray-600 hover:text-primary-600">Features</a>
-          <a href="#" class="text-gray-600 hover:text-primary-600">About</a>
-          <a href="#" class="text-gray-600 hover:text-primary-600">Contact</a>
-        </div>
-        <button class="md:hidden">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-    </nav>
-  </header>
+// Event Listeners
+document.getElementById('start-button').onclick = () => game.startGame();
 
-  <main class="pt-16">
-    <section class="bg-gradient-to-r from-primary-50 to-primary-100 py-20">
-      <div class="container mx-auto px-6">
-        <div class="flex flex-col md:flex-row items-center">
-          <div class="md:w-1/2 mb-8 md:mb-0">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Predict Agricultural Commodity Prices
-            </h1>
-            <p class="text-xl text-gray-600 mb-8">Empower your agricultural decisions with our price prediction technology.</p>
-            <a href="#" class="bg-primary-600 text-white font-bold py-3 px-6 rounded-full hover:bg-primary-700 transition duration-300">
-              Get Started
-            </a>
-          </div>
-          <div class="md:w-1/2">
-            <div class="rounded-lg overflow-hidden shadow-xl">
-              <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&amp;fit=crop&amp;q=80&amp;w=1470&amp;ixlib=rb-4.0.3" alt="Agricultural field" class="w-full h-auto">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-</div>
-</htmlcode>
-              
-                <htmlcode>
-<div id="root" class="">
-  <section class="bg-white py-16">
-    <div class="container mx-auto px-6 div-highlight">
-  <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">22 Agriculture Commodities We Predict</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 div-highlight">
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🧅</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Onion</h3>
-      <p class="text-gray-600">Forecast Onion prices with our advanced algorithms.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🌽</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Corn</h3>
-      <p class="text-gray-600">Stay ahead of corn market trends with accurate predictions.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🥔</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Potatoes</h3>
-      <p class="text-gray-600">Optimize your potato crop value with price forecasts.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🍚</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Rice</h3>
-      <p class="text-gray-600">Predict rice prices to make informed decisions.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🫘</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Soybeans</h3>
-      <p class="text-gray-600">Get insights into future soybean market prices.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">☕</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Coffee</h3>
-      <p class="text-gray-600">Forecast coffee prices for better market positioning.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🍎</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Apples</h3>
-      <p class="text-gray-600">Predict apple prices to maximize your orchard's profitability.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🥩</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Beef</h3>
-      <p class="text-gray-600">Stay informed about future beef market prices.</p>
-    </div>
-    <!-- Additional commodities to reach 22 -->
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🍊</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Oranges</h3>
-      <p class="text-gray-600">Get accurate predictions for orange market prices.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🥜</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Peanuts</h3>
-      <p class="text-gray-600">Forecast peanut prices for better crop planning.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🍇</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Grapes</h3>
-      <p class="text-gray-600">Predict grape prices for wine and table varieties.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🥕</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Carrots</h3>
-      <p class="text-gray-600">Stay ahead with carrot price predictions.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🍅</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Tomatoes</h3>
-      <p class="text-gray-600">Get insights into future tomato market trends.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🥬</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Lettuce</h3>
-      <p class="text-gray-600">Optimize your lettuce crop with price forecasts.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🍗</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Poultry</h3>
-      <p class="text-gray-600">Predict poultry prices for better market decisions.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🥚</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Eggs</h3>
-      <p class="text-gray-600">Stay informed about future egg market prices.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🥛</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Milk</h3>
-      <p class="text-gray-600">Get accurate predictions for dairy market trends.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🍯</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Honey</h3>
-      <p class="text-gray-600">Forecast honey prices for beekeepers and traders.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🥑</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Avocados</h3>
-      <p class="text-gray-600">Predict avocado prices to optimize your harvests.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🍋</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Lemons</h3>
-      <p class="text-gray-600">Stay ahead with lemon price predictions.</p>
-    </div>
-    <div class="bg-primary-50 rounded-lg p-6 shadow-md transition duration-300 hover:shadow-lg">
-      <div class="text-4xl mb-4 text-primary-600">🥦</div>
-      <h3 class="text-xl font-semibold mb-2 text-gray-800">Broccoli</h3>
-      <p class="text-gray-600">Get insights into future broccoli market prices.</p>
-    </div>
-  </div>
-</div>
-  </section>
-</div>
-</htmlcode>
-              <htmlCode>
-<div id="root">
-  <section class="bg-gray-100 py-16">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Price Prediction Tool</h2>
-      <div class="bg-white rounded-lg shadow-lg p-8 max-w-3xl mx-auto">
-        <form>
-          <div class="mb-6">
-            <label for="commodity" class="block text-gray-700 font-semibold mb-2">Select Commodity</label>
-            <select id="commodity" name="commodity" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
-              <option value="">Choose a commodity</option>
-              <option value="Onion">Onion</option>
-              <!-- <option value="corn">Corn</option>
-              <option value="soybeans">Soybeans</option>
-              <option value="rice">Rice</option>
-              <option value="coffee">Coffee</option> -->
-            </select>
-          </div>
-          <div class="mb-6">
-            <label for="date" class="block text-gray-700 font-semibold mb-2">Prediction Date</label>
-            <input type="date" id="date" name="date" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
-          </div>
-          <!-- <div class="mb-6">
-            <label for="quantity" class="block text-gray-700 font-semibold mb-2">Quantity (in tons)</label>
-            <input type="number" id="quantity" name="quantity" min="1" step="1" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
-          </div> -->
-          <div class="text-center">
-            <button type="submit" class="bg-primary-600 text-white font-bold py-3 px-6 rounded-full hover:bg-primary-700 transition duration-300">
-              Get Price Prediction
-            </button>
-          </div>
-        </form>
-      </div>
-      <div class="mt-12 bg-white rounded-lg shadow-lg p-8 max-w-3xl mx-auto hidden" id="prediction-result">
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">Prediction Result</h3>
-        <p class="text-lg text-gray-600 mb-4">Based on our analysis, the predicted price for <span id="result-commodity" class="font-semibold"></span> on <span id="result-date" class="font-semibold"></span> is:</p>
-        <p class="text-4xl font-bold text-primary-600 mb-4">Rs <span id="result-price"></span> per ton</p>
-        <p class="text-gray-600">This prediction is based on historical data, market trends, and our advanced machine learning algorithms. Please note that actual prices may vary due to unforeseen market conditions.</p>
-      </div>
-    </div>
-  </section>
+document.getElementById('answer-input').onkeypress = (e) => {
+    if (e.key === 'Enter') {
+        game.checkAnswer(e.target.value);
+    }
+};
 
-  <script>
-    document.querySelector('form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      // Simulate prediction result
-      document.getElementById('prediction-result').classList.remove('hidden');
-      document.getElementById('result-commodity').textContent = document.getElementById('commodity').value;
-      document.getElementById('result-date').textContent = document.getElementById('date').value;
-      document.getElementById('result-price').textContent = (Math.random() * 1000 + 100).toFixed(2);
-    });
-  </script>
-</div>
-</htmlCode><htmlCode>
-<div id="root">
-  <section class="bg-white py-16">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Market Insights</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-primary-50 rounded-lg p-6 shadow-md">
-          <h3 class="text-xl font-semibold mb-4 text-gray-800">Latest Market Trends</h3>
-          <ul class="space-y-4">
-            <li class="flex items-center">
-              <svg class="w-6 h-6 text-primary-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-              <span>Wheat prices expected to rise due to drought conditions in major producing regions.</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-6 h-6 text-primary-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path></svg>
-              <span>Corn futures show a downward trend as harvest yields exceed expectations.</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-6 h-6 text-primary-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-              <span>Soybean market stabilizes as trade negotiations progress.</span>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="bg-primary-50 rounded-lg p-6 shadow-md">
-          <h3 class="text-xl font-semibold mb-4 text-gray-800">Price Volatility Index</h3>
-          <div class="space-y-4">
-            <div>
-              <div class="flex justify-between mb-1">
-                <span class="text-base font-medium text-gray-700">Wheat</span>
-                <span class="text-sm font-medium text-gray-700">70%</span>
-              </div>
-              <div class="w-full bg-gray-200 rounded-full h-2.5">
-                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 70%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between mb-1">
-                <span class="text-base font-medium text-gray-700">Corn</span>
-                <span class="text-sm font-medium text-gray-700">45%</span>
-              </div>
-              <div class="w-full bg-gray-200 rounded-full h-2.5">
-                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 45%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between mb-1">
-                <span class="text-base font-medium text-gray-700">Soybeans</span>
-                <span class="text-sm font-medium text-gray-700">60%</span>
-              </div>
-              <div class="w-full bg-gray-200 rounded-full h-2.5">
-                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 60%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="mt-12">
-        <h3 class="text-2xl font-semibold text-center text-gray-800 mb-6">Global Agricultural News</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="p-6">
-              <h4 class="font-semibold text-lg mb-2">Climate Change Impact on Crop Yields</h4>
-              <p class="text-gray-600">New study reveals the long-term effects of climate change on global agricultural production...</p>
-            </div>
-            <div class="bg-gray-100 px-6 py-4">
-              <a href="#" class="text-primary-600 hover:text-primary-800 font-medium">Read more</a>
-            </div>
-          </div>
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="p-6">
-              <h4 class="font-semibold text-lg mb-2">Innovations in Sustainable Farming</h4>
-              <p class="text-gray-600">Breakthrough technologies promise to revolutionize sustainable agricultural practices...</p>
-            </div>
-            <div class="bg-gray-100 px-6 py-4">
-              <a href="#" class="text-primary-600 hover:text-primary-800 font-medium">Read more</a>
-            </div>
-          </div>
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="p-6">
-              <h4 class="font-semibold text-lg mb-2">Global Trade Policies Shift</h4>
-              <p class="text-gray-600">Recent changes in international trade agreements set to impact agricultural commodity markets...</p>
-            </div>
-            <div class="bg-gray-100 px-6 py-4">
-              <a href="#" class="text-primary-600 hover:text-primary-800 font-medium">Read more</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-</htmlCode><htmlCode>
-<div id="root">
-  <section class="bg-gray-100 py-16">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">How It Works</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-lg shadow-md p-6 text-center">
-          <div class="text-primary-600 text-4xl mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-4">1. Data Collection</h3>
-          <p class="text-gray-600">We gather extensive historical data on commodity prices, weather patterns, and global economic indicators.</p>
-        </div>
-        <div class="bg-white rounded-lg shadow-md p-6 text-center">
-          <div class="text-primary-600 text-4xl mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-4">2. Advanced Analysis</h3>
-          <p class="text-gray-600">Our AI models process the data, identifying patterns and correlations to generate accurate predictions.</p>
-        </div>
-        <div class="bg-white rounded-lg shadow-md p-6 text-center">
-          <div class="text-primary-600 text-4xl mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-4">3. Price Forecasting</h3>
-          <p class="text-gray-600">We provide you with accurate price predictions and market insights to inform your decisions.</p>
-        </div>
-      </div>
-      <div class="mt-12 text-center">
-        <a href="#" class="inline-block bg-primary-600 text-white font-bold py-3 px-6 rounded-full hover:bg-primary-700 transition duration-300">
-          Try Our Prediction Tool
-        </a>
-      </div>
-    </div>
-  </section>
-</div>
-</htmlCode><htmlCode>
-<div id="root">
-  <section class="bg-white py-16">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Our Data Sources</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-primary-50 rounded-lg p-6 shadow-md">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-          </svg>
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Government Agencies</h3>
-          <p class="text-gray-600">We collect data from USDA, FAO, and other national agricultural departments for accurate insights.</p>
-        </div>
-        <div class="bg-primary-50 rounded-lg p-6 shadow-md">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-          </svg>
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Commodity Exchanges</h3>
-          <p class="text-gray-600">Real-time and historical data from major commodity exchanges worldwide.</p>
-        </div>
-        <div class="bg-primary-50 rounded-lg p-6 shadow-md">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-          </svg>
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Weather Services</h3>
-          <p class="text-gray-600">Comprehensive weather data and forecasts from global meteorological organizations.</p>
-        </div>
-        <!-- <div class="bg-primary-50 rounded-lg p-6 shadow-md">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-          </svg>
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Economic Indicators</h3>
-          <p class="text-gray-600">Global economic data from World Bank, IMF, and other financial institutions.</p>
-        </div>
-        <div class="bg-primary-50 rounded-lg p-6 shadow-md">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-          </svg>
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Industry Reports</h3>
-          <p class="text-gray-600">Insights from leading agricultural research institutions and industry analysts.</p>
-        </div>
-        <div class="bg-primary-50 rounded-lg p-6 shadow-md">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Market Sentiment</h3>
-          <p class="text-gray-600">Analysis of social media trends and news sentiment related to agricultural markets.</p>
-        </div> -->
-      </div>
-      <div class="mt-12 text-center">
-        <p class="text-gray-600 mb-4">Our diverse range of data sources ensures comprehensive and accurate predictions.</p>
-        <a href="#" class="inline-block bg-primary-600 text-white font-bold py-3 px-6 rounded-full hover:bg-primary-700 transition duration-300">
-          Learn More About Our Data
-        </a>
-      </div>
-    </div>
-  </section>
-</div>
-</htmlCode><htmlCode>
-<div id="root">
-  <section class="bg-gray-100 py-16">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">What Our Clients Say</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white rounded-lg shadow-md p-6">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
-              <span class="text-primary-600 font-bold text-xl">JD</span>
-            </div>
-            <div>
-              <h3 class="font-semibold text-lg">User 1</h3>
-              <p class="text-gray-600">Grain Farmer</p>
-            </div>
-          </div>
-          <p class="text-gray-700 mb-4">"This prediction tool has been a game-changer for my farm. I can now make informed decisions about when to sell my crops, maximizing my profits."</p>
-          <div class="flex text-yellow-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-          </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-md p-6">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
-              <span class="text-primary-600 font-bold text-xl">ES</span>
-            </div>
-            <div>
-              <h3 class="font-semibold text-lg">User 2</h3>
-              <p class="text-gray-600">Agricultural Analyst</p>
-            </div>
-          </div>
-          <p class="text-gray-700 mb-4">"The accuracy of these predictions is impressive. It's become an essential tool in my analysis toolkit, helping me provide better insights to my clients."</p>
-          <div class="flex text-yellow-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-          </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-md p-6">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
-              <span class="text-primary-600 font-bold text-xl">MJ</span>
-            </div>
-            <div>
-              <h3 class="font-semibold text-lg">User 3</h3>
-              <p class="text-gray-600">Commodity Trader</p>
-            </div>
-          </div>
-          <p class="text-gray-700 mb-4">"As a trader, having access to accurate price predictions gives me a significant edge in the market. This tool has consistently delivered reliable forecasts."</p>
-          <div class="flex text-yellow-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-      <div class="text-center mt-12">
-        <a href="#" class="inline-block bg-primary-600 text-white font-bold py-3 px-6 rounded-full hover:bg-primary-700 transition duration-300">
-          Read More Testimonials
-        </a>
-      </div>
-    </div>
-  </section>
-</div>
-</htmlCode><htmlCode>
-
-</htmlCode><htmlCode>
-<div id="root">
-  <section class="bg-neutral-900 py-16">
-    <div class="max-w-screen-xl mx-auto px-4 xl:px-0">
-      <div class="max-w-2xl mx-auto text-center mb-10">
-        <h2 class="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-        <p class="text-neutral-400">Find answers to common questions about our agricultural commodity price prediction service.</p>
-      </div>
-
-      <div class="max-w-3xl mx-auto">
-        <div class="hs-accordion-group">
-          <div class="hs-accordion hs-accordion-active:bg-neutral-800 rounded-xl p-6 mb-4" id="hs-basic-with-title-and-arrow-stretched-heading-one">
-            <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-left text-white" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-              How accurate are your price predictions?
-              <svg class="hs-accordion-active:hidden block w-3 h-3 text-neutral-400 group-hover:text-neutral-300" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <svg class="hs-accordion-active:block hidden w-3 h-3 text-neutral-400 group-hover:text-neutral-300" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 11L8.16086 5.31305C8.35239 5.13625 8.64761 5.13625 8.83914 5.31305L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </button>
-            <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-              <p class="text-neutral-400">Our predictions are based on advanced machine learning models and historical data. While we strive for high accuracy, market conditions can change rapidly. We typically achieve 80-90% accuracy in short-term predictions.</p>
-            </div>
-          </div>
-
-          <div class="hs-accordion hs-accordion-active:bg-neutral-800 rounded-xl p-6 mb-4" id="hs-basic-with-title-and-arrow-stretched-heading-two">
-            <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-left text-white" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-two">
-              Which commodities do you cover?
-              <svg class="hs-accordion-active:hidden block w-3 h-3 text-neutral-400 group-hover:text-neutral-300" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <svg class="hs-accordion-active:block hidden w-3 h-3 text-neutral-400 group-hover:text-neutral-300" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 11L8.16086 5.31305C8.35239 5.13625 8.64761 5.13625 8.83914 5.31305L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </button>
-            <div id="hs-basic-with-title-and-arrow-stretched-collapse-two" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-two">
-              <p class="text-neutral-400">We cover a wide range of agricultural commodities including wheat, corn, soybeans, rice, coffee, sugar, and more. Our list is constantly expanding, so please check our commodities page for the most up-to-date information.</p>
-            </div>
-          </div>
-
-          <div class="hs-accordion hs-accordion-active:bg-neutral-800 rounded-xl p-6 mb-4" id="hs-basic-with-title-and-arrow-stretched-heading-three">
-            <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-left text-white" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-three">
-              How often are predictions updated?
-              <svg class="hs-accordion-active:hidden block w-3 h-3 text-neutral-400 group-hover:text-neutral-300" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <svg class="hs-accordion-active:block hidden w-3 h-3 text-neutral-400 group-hover:text-neutral-300" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 11L8.16086 5.31305C8.35239 5.13625 8.64761 5.13625 8.83914 5.31305L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </button>
-            <div id="hs-basic-with-title-and-arrow-stretched-collapse-three" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-three">
-              <p class="text-neutral-400">Our predictions are updated daily to reflect the latest market trends and data. Premium users receive real-time updates and alerts for significant price movements.</p>
-            </div>
-          </div>
-
-          <div class="hs-accordion hs-accordion-active:bg-neutral-800 rounded-xl p-6 mb-4" id="hs-basic-with-title-and-arrow-stretched-heading-four">
-            <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-left text-white" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-four">
-              Can I integrate your predictions into my own systems?
-              <svg class="hs-accordion-active:hidden block w-3 h-3 text-neutral-400 group-hover:text-neutral-300" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <svg class="hs-accordion-active:block hidden w-3 h-3 text-neutral-400 group-hover:text-neutral-300" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 11L8.16086 5.31305C8.35239 5.13625 8.64761 5.13625 8.83914 5.31305L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </button>
-            <div id="hs-basic-with-title-and-arrow-stretched-collapse-four" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-four">
-              <p class="text-neutral-400">Yes, we offer API access for seamless integration with your existing systems. Our developer documentation provides detailed information on how to implement and use our API effectively.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-</htmlCode>
-                <htmlcode>
-<div id="root" class="">
-  <section class="bg-neutral-900 py-16">
-    <div class="max-w-screen-xl mx-auto px-4 xl:px-0">
-      <div class="grid md:grid-cols-2 gap-16">
-        <div class="">
-          <h2 class="text-3xl font-bold text-white mb-4">Contact Us</h2>
-          <p class="text-neutral-400 mb-8">Have questions about our agricultural commodity price predictions? We're here to help. Reach out to us using the form or contact details below.</p>
-          
-          <div class="space-y-6">
-            <div class="flex items-start">
-              <svg class="w-6 h-6 text-yellow-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
-              <div>
-                <h3 class="text-lg font-semibold text-white">Address</h3>
-                <p class="text-neutral-400">XYZ, Pune 411001, Maharashtra, India</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start">
-              <svg class="w-6 h-6 text-yellow-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-              </svg>
-              <div class="">
-                <h3 class="text-lg font-semibold text-white">Email</h3>
-                <p class="text-neutral-400">info@agripricepredict.com</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start">
-              <svg class="w-6 h-6 text-yellow-400 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-              </svg>
-              <div class="">
-                <h3 class="text-lg font-semibold text-white">Phone</h3>
-                <p class="text-neutral-400">+91 xxxxxxxxxx</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div>
-          <form class="space-y-6">
-            <div>
-              <label for="name" class="block text-sm font-medium text-white mb-2">Name</label>
-              <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-neutral-800 border border-neutral-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-yellow-400" required="">
-            </div>
-            
-            <div>
-              <label for="email" class="block text-sm font-medium text-white mb-2">Email</label>
-              <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-neutral-800 border border-neutral-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-yellow-400" required="">
-            </div>
-            
-            <div>
-              <label for="subject" class="block text-sm font-medium text-white mb-2">Subject</label>
-              <input type="text" id="subject" name="subject" class="w-full px-4 py-2 bg-neutral-800 border border-neutral-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-yellow-400" required="">
-            </div>
-            
-            <div>
-              <label for="message" class="block text-sm font-medium text-white mb-2">Message</label>
-              <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 bg-neutral-800 border border-neutral-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-yellow-400" required=""></textarea>
-            </div>
-            
-            <div>
-              <button type="submit" class="w-full px-6 py-3 bg-yellow-400 text-black font-semibold rounded-md hover:bg-yellow-500 transition duration-300">Send Message</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-</htmlcode>
-              <htmlCode>
-<div id="root">
-  <footer class="bg-neutral-900 text-white py-12">
-    <div class="max-w-screen-xl mx-auto px-4 xl:px-0">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div class="col-span-1 md:col-span-2">
-          <h2 class="text-2xl font-bold mb-4">AgriPrice Predict</h2>
-          <p class="text-neutral-400 mb-4">Empowering farmers and traders with accurate agricultural commodity price predictions.</p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
-              </svg>
-            </a>
-            <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-              </svg>
-            </a>
-            <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300">Home</a></li>
-            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300">About Us</a></li>
-            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300">Services</a></li>
-            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Resources</h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300">Blog</a></li>
-            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300">FAQ</a></li>
-            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
-            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300">Terms of Service</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-neutral-800 mt-8 pt-8 text-center text-neutral-400">
-        <p>&copy; 2025 AgriPrice Predict. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-</div>
-</htmlCode>
+document.querySelectorAll('[data-difficulty]').forEach(btn => {
+    btn.onclick = (e) => {
+        document.querySelectorAll('[data-difficulty]').forEach(b => b.classList.remove('selected'));
+        e.target.classList.add('selected');
+        game.state.difficulty = e.target.dataset.difficulty;
+    };
+});
+</script>
+</body>
+</html>
